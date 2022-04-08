@@ -272,7 +272,8 @@ int inst_to_binary(
 		 */
 		binary = (0x0D << 2) + 0x03;
 		binary += (reg_to_num(arg1, line_no) << 7);
-		binary += ((handle_label_or_imm(arg2, label_table, cmd_no, line_no) & 0xFFFFF000) << 12 );
+		//binary += ((handle_label_or_imm(arg2, label_table, cmd_no, line_no) & 0xFFFFF000) << 12 );
+		binary += (handle_label_or_imm(arg2, label_table, cmd_no, line_no)  << 12 );
 		//warn("Lab2-1 assignment: LUI instruction\n");
 		//exit(EXIT_FAILURE);
 	}
