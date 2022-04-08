@@ -478,6 +478,7 @@ int inst_to_binary(
 		exit(EXIT_FAILURE);
 	} else if (is_opcode(opcode) == SW) {
 		/* Lab2-1 assignment */
+		printf("%s,%s,%s\n",arg1,arg2,arg3);
 		warn("Lab2-1 assignment: SW instruction\n");
 		exit(EXIT_FAILURE);
 	}
