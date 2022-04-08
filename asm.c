@@ -357,16 +357,33 @@ int inst_to_binary(
 		 * tip: you may need the function `parse_regs_indirect_addr`
 		 * e.g., parse_regs_indirect_addr(arg2, line_no)
 		 */
-		warn("Lab2-1 assignment: JALR instruction\n");
-		exit(EXIT_FAILURE);
+		binary = (0x19 << 2) + 0x03;
+		binary += (reg_to_num(arg1, line_no) << 7);
+		struct_regs_indirect_addr* ret = parse_regs_indirect_addr(arg2, line_no);
+		binary += (reg_to_num(ret->reg, line_no) << 15);
+		binary += (ret->imm << 20);
+		//warn("Lab2-1 assignment: JALR instruction\n");
+		//exit(EXIT_FAILURE);
 	} else if (is_opcode(opcode) == JAL) {
 		/*
 		 * Lab2-1 assignment
 		 * tip: you may need the function `handle_label_or_imm`
 		 * e.g., handle_label_or_imm(arg2, label_table, cmd_no, line_no)
 		 */
-		warn("Lab2-1 assignment: JAL instruction\n");
-		exit(EXIT_FAILURE);
+		binary = (0x1B << 2) + 0x03;
+		binary += (reg_to_num(arg1, line_no) << 7);
+		int offset;
+		offset = handle_label_or_imm(arg2, label_table, cmd_no, line_no);
+		// imm[19:12]
+		binary += (offset & 0xFF000);
+		// imm[11]
+		binary += ((offset & 0x800) << 9);
+		// imm[10:1]
+		binary += ((offset & 0x7FE) << 20);
+		// imm[20]
+		binary += ((offset & 0x100000) << 11);
+		//warn("Lab2-1 assignment: JAL instruction\n");
+		//exit(EXIT_FAILURE);
 	}
 
 	// Conditional Branches
