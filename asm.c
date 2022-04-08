@@ -10,7 +10,7 @@
 
 
 #include "asm.h"
-
+#include<stdio.h>
 
 int reg_to_num(char *reg, int line_no) {
 	if (is_reg(reg) == MIS_MATCH)
@@ -203,7 +203,7 @@ int inst_to_binary(
 		binary += (reg_to_num(arg2, line_no) << 15);
 		binary += (MASK11_0(validate_imm(arg3, 12, line_no)) << 20);
 		warn("Lab2-1 assignment: hihihi\n");
-		warn(opcode);
+		printf("%s\n",opcode);
 	} else if (is_opcode(opcode) == SLLI) {
 		/* Lab2-1 assignment */
 		binary = (0x04 << 2) + 0x03;
