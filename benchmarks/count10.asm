@@ -1,8 +1,11 @@
 # This program counts from 10 to 0, the result is in t2
 # t2 = 55 / 0x00000037
-addi a0, zero, 0
-xori a0, a0, 2
-slli a0, a0, 3
-la a0, 4294832143
-sw a0, 4(a0)
+    la t0, ten
+    lw t1, 0(t0)
+    add t2, zero, zero
+loop add t2, t2, t1
+    addi t1, t1, -1
+    bne t1, zero, loop
+    halt
 
+ten .fill 10
