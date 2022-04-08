@@ -449,14 +449,27 @@ int inst_to_binary(
 		binary += (ret->imm << 20);
 	} else if (is_opcode(opcode) == LH) {
 		/* Lab2-1 assignment */
-		warn("Lab2-1 assignment: LH instruction\n");
-		exit(EXIT_FAILURE);
+		binary = 0x03;
+		binary += (reg_to_num(arg1, line_no) << 7);
+		binary += (0x01 << 12);
+		struct_regs_indirect_addr* ret = parse_regs_indirect_addr(arg2, line_no);
+		binary += (reg_to_num(ret->reg, line_no) << 15);
+		binary += (ret->imm << 20);
+		//warn("Lab2-1 assignment: LH instruction\n");
+		//exit(EXIT_FAILURE);
 	} else if (is_opcode(opcode) == LW) {
 		/* Lab2-1 assignment */
-		warn("Lab2-1 assignment: LW instruction\n");
-		exit(EXIT_FAILURE);
+		binary = 0x03;
+		binary += (reg_to_num(arg1, line_no) << 7);
+		binary += (0x02 << 12);
+		struct_regs_indirect_addr* ret = parse_regs_indirect_addr(arg2, line_no);
+		binary += (reg_to_num(ret->reg, line_no) << 15);
+		binary += (ret->imm << 20);
+		//warn("Lab2-1 assignment: LW instruction\n");
+		//exit(EXIT_FAILURE);
 	} else if (is_opcode(opcode) == SB) {
 		/* Lab2-1 assignment */
+		printf("%s,%s,%s\n",arg1,arg2,arg3);
 		warn("Lab2-1 assignment: SB instruction\n");
 		exit(EXIT_FAILURE);
 	} else if (is_opcode(opcode) == SH) {
