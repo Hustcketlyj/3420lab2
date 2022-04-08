@@ -4,4 +4,5 @@ addi a0, zero, 0
 xori a0, a0, 2
 slli a0, a0, 3
 la a0, 4294832143
+sw a0, 4(a0)
 
