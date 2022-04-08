@@ -202,6 +202,7 @@ int inst_to_binary(
 		binary += (reg_to_num(arg1, line_no) << 7);
 		binary += (reg_to_num(arg2, line_no) << 15);
 		binary += (MASK11_0(validate_imm(arg3, 12, line_no)) << 20);
+		warn("Lab2-1 assignment: hihihi\n");
 	} else if (is_opcode(opcode) == SLLI) {
 		/* Lab2-1 assignment */
 		binary = (0x04 << 2) + 0x03;
@@ -269,8 +270,11 @@ int inst_to_binary(
 		 * tip: you may need the function `handle_label_or_imm`
 		 * e.g., handle_label_or_imm(arg2, label_table, cmd_no, line_no)
 		 */
-		warn("Lab2-1 assignment: LUI instruction\n");
-		exit(EXIT_FAILURE);
+		binary = (0x0D << 2) + 0x03;
+		binary += (reg_to_num(arg1, line_no) << 7);
+
+		//warn("Lab2-1 assignment: LUI instruction\n");
+		//exit(EXIT_FAILURE);
 	}
 
 	// Integer Register-Register Operations
