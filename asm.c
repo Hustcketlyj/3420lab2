@@ -472,8 +472,8 @@ int inst_to_binary(
 		binary = (0x08 << 2) + 0x03;
 		struct_regs_indirect_addr* ret = parse_regs_indirect_addr(arg2, line_no);
 		binary += ((ret->imm & 0x1F) << 7);
-		binary += (reg_to_num(arg1, line_no) << 15);
-		binary += (reg_to_num(ret->reg, line_no) << 20);
+		binary += (reg_to_num(ret->reg, line_no) << 15);
+		binary += (reg_to_num(arg1, line_no) << 20);
 		binary += ((ret->imm & 0xFE0) << 20);
 		//printf("%s,%s,%s\n",arg1,arg2,arg3);
 		//warn("Lab2-1 assignment: SB instruction\n");
@@ -484,8 +484,8 @@ int inst_to_binary(
 		struct_regs_indirect_addr* ret = parse_regs_indirect_addr(arg2, line_no);
 		binary += ((ret->imm & 0x1F) << 7);
 		binary += (0x01 << 12);
-		binary += (reg_to_num(arg1, line_no) << 15);
-		binary += (reg_to_num(ret->reg, line_no) << 20);
+		binary += (reg_to_num(ret->reg, line_no) << 15);
+		binary += (reg_to_num(arg1, line_no) << 20);
 		binary += ((ret->imm & 0xFE0) << 20);
 		//warn("Lab2-1 assignment: SH instruction\n");
 		//exit(EXIT_FAILURE);
@@ -495,8 +495,8 @@ int inst_to_binary(
 		struct_regs_indirect_addr* ret = parse_regs_indirect_addr(arg2, line_no);
 		binary += ((ret->imm & 0x1F) << 7);
 		binary += (0x02 << 12);
-		binary += (reg_to_num(arg1, line_no) << 15);
-		binary += (reg_to_num(ret->reg, line_no) << 20);
+		binary += (reg_to_num(ret->reg, line_no) << 15);
+		binary += (reg_to_num(arg1, line_no) << 20);
 		binary += ((ret->imm & 0xFE0) << 20);
 		//warn("Lab2-1 assignment: SW instruction\n");
 		//exit(EXIT_FAILURE);
