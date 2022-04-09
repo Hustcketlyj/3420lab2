@@ -3,4 +3,4 @@
     la t0, ten
     lw t1, 0(t0)
 
-ten .fill 4660
+ten .fill 0x1234
