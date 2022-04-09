@@ -13,6 +13,9 @@
 	sw t0, 0(t3)
 	sw t1, 0(t2)
 
+	lw a1, 0(t3)
+	lw a2, 0(t2)
+
 	halt
 
 NUM1 .fill 0xabcd
